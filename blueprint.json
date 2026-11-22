@@ -1,0 +1,2210 @@
+{
+  "name": "Integration Google Forms",
+  "flow": [
+    {
+      "id": 1,
+      "module": "google-forms:watchResponses",
+      "version": 2,
+      "parameters": {
+        "limit": 2,
+        "formId": "YOUR_GOOGLE_FORM_ID",
+        "__IMTCONN__": null
+      },
+      "mapper": {},
+      "metadata": {
+        "designer": {
+          "x": -300,
+          "y": 0
+        },
+        "restore": {
+          "parameters": {
+            "__IMTCONN__": {
+              "data": {
+                "scoped": "true",
+                "connection": "google"
+              },
+              "label": "Reconnect your Google account"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "__IMTCONN__",
+            "type": "account:google",
+            "label": "Connection",
+            "required": true
+          },
+          {
+            "name": "formId",
+            "type": "text",
+            "label": "Form ID",
+            "required": true
+          },
+          {
+            "name": "limit",
+            "type": "uinteger",
+            "label": "Limit",
+            "required": true
+          }
+        ],
+        "interface": [
+          {
+            "name": "responseId",
+            "type": "text",
+            "label": "Response ID"
+          },
+          {
+            "name": "createTime",
+            "type": "date",
+            "label": "Create Time"
+          },
+          {
+            "name": "lastSubmittedTime",
+            "type": "date",
+            "label": "Last Submitted Time"
+          },
+          {
+            "name": "respondentEmail",
+            "type": "text",
+            "label": "Respondent Email"
+          },
+          {
+            "name": "answers",
+            "spec": [
+              {
+                "name": "a0000001",
+                "spec": [
+                  {
+                    "name": "questionId",
+                    "type": "text",
+                    "label": "Question ID"
+                  },
+                  {
+                    "name": "grade",
+                    "spec": [
+                      {
+                        "name": "score",
+                        "type": "number",
+                        "label": "Score"
+                      },
+                      {
+                        "name": "correct",
+                        "type": "boolean",
+                        "label": "Correct"
+                      },
+                      {
+                        "name": "feedback",
+                        "spec": [
+                          {
+                            "name": "text",
+                            "type": "text",
+                            "label": "Text"
+                          },
+                          {
+                            "name": "material",
+                            "spec": [
+                              {
+                                "name": "link",
+                                "spec": [
+                                  {
+                                    "name": "uri",
+                                    "type": "text",
+                                    "label": "URI"
+                                  },
+                                  {
+                                    "name": "displayText",
+                                    "type": "text",
+                                    "label": "Display Text"
+                                  }
+                                ],
+                                "type": "collection",
+                                "label": "Link"
+                              },
+                              {
+                                "name": "video",
+                                "spec": [
+                                  {
+                                    "name": "youtubeUri",
+                                    "type": "text",
+                                    "label": "Youtube URI"
+                                  },
+                                  {
+                                    "name": "displayText",
+                                    "type": "text",
+                                    "label": "Display Text"
+                                  }
+                                ],
+                                "type": "collection",
+                                "label": "Video"
+                              }
+                            ],
+                            "type": "array",
+                            "label": "Material"
+                          },
+                          {
+                            "name": "textAnswers",
+                            "spec": [
+                              {
+                                "name": "answers",
+                                "spec": [
+                                  {
+                                    "name": "value",
+                                    "type": "text",
+                                    "label": "value"
+                                  }
+                                ],
+                                "type": "array",
+                                "label": "Answers"
+                              }
+                            ],
+                            "type": "collection",
+                            "label": "Text Answers"
+                          },
+                          {
+                            "name": "fileUploadAnswers",
+                            "spec": [
+                              {
+                                "name": "answers",
+                                "spec": [
+                                  {
+                                    "name": "fileId",
+                                    "type": "text",
+                                    "label": "File ID"
+                                  },
+                                  {
+                                    "name": "fileName",
+                                    "type": "text",
+                                    "label": "File Name"
+                                  },
+                                  {
+                                    "name": "mimeType",
+                                    "type": "text",
+                                    "label": "MIME Type"
+                                  }
+                                ],
+                                "type": "array",
+                                "label": "Answers"
+                              }
+                            ],
+                            "type": "collection",
+                            "label": "File Upload Answers"
+                          }
+                        ],
+                        "type": "collection",
+                        "label": "Feedback"
+                      }
+                    ],
+                    "type": "collection",
+                    "label": "Grade"
+                  }
+                ],
+                "type": "collection",
+                "label": "Name"
+              },
+              {
+                "name": "a0000002",
+                "spec": [
+                  {
+                    "name": "questionId",
+                    "type": "text",
+                    "label": "Question ID"
+                  },
+                  {
+                    "name": "grade",
+                    "spec": [
+                      {
+                        "name": "score",
+                        "type": "number",
+                        "label": "Score"
+                      },
+                      {
+                        "name": "correct",
+                        "type": "boolean",
+                        "label": "Correct"
+                      },
+                      {
+                        "name": "feedback",
+                        "spec": [
+                          {
+                            "name": "text",
+                            "type": "text",
+                            "label": "Text"
+                          },
+                          {
+                            "name": "material",
+                            "spec": [
+                              {
+                                "name": "link",
+                                "spec": [
+                                  {
+                                    "name": "uri",
+                                    "type": "text",
+                                    "label": "URI"
+                                  },
+                                  {
+                                    "name": "displayText",
+                                    "type": "text",
+                                    "label": "Display Text"
+                                  }
+                                ],
+                                "type": "collection",
+                                "label": "Link"
+                              },
+                              {
+                                "name": "video",
+                                "spec": [
+                                  {
+                                    "name": "youtubeUri",
+                                    "type": "text",
+                                    "label": "Youtube URI"
+                                  },
+                                  {
+                                    "name": "displayText",
+                                    "type": "text",
+                                    "label": "Display Text"
+                                  }
+                                ],
+                                "type": "collection",
+                                "label": "Video"
+                              }
+                            ],
+                            "type": "array",
+                            "label": "Material"
+                          },
+                          {
+                            "name": "textAnswers",
+                            "spec": [
+                              {
+                                "name": "answers",
+                                "spec": [
+                                  {
+                                    "name": "value",
+                                    "type": "text",
+                                    "label": "value"
+                                  }
+                                ],
+                                "type": "array",
+                                "label": "Answers"
+                              }
+                            ],
+                            "type": "collection",
+                            "label": "Text Answers"
+                          },
+                          {
+                            "name": "fileUploadAnswers",
+                            "spec": [
+                              {
+                                "name": "answers",
+                                "spec": [
+                                  {
+                                    "name": "fileId",
+                                    "type": "text",
+                                    "label": "File ID"
+                                  },
+                                  {
+                                    "name": "fileName",
+                                    "type": "text",
+                                    "label": "File Name"
+                                  },
+                                  {
+                                    "name": "mimeType",
+                                    "type": "text",
+                                    "label": "MIME Type"
+                                  }
+                                ],
+                                "type": "array",
+                                "label": "Answers"
+                              }
+                            ],
+                            "type": "collection",
+                            "label": "File Upload Answers"
+                          }
+                        ],
+                        "type": "collection",
+                        "label": "Feedback"
+                      }
+                    ],
+                    "type": "collection",
+                    "label": "Grade"
+                  }
+                ],
+                "type": "collection",
+                "label": "Email Address"
+              },
+              {
+                "name": "a0000003",
+                "spec": [
+                  {
+                    "name": "questionId",
+                    "type": "text",
+                    "label": "Question ID"
+                  },
+                  {
+                    "name": "grade",
+                    "spec": [
+                      {
+                        "name": "score",
+                        "type": "number",
+                        "label": "Score"
+                      },
+                      {
+                        "name": "correct",
+                        "type": "boolean",
+                        "label": "Correct"
+                      },
+                      {
+                        "name": "feedback",
+                        "spec": [
+                          {
+                            "name": "text",
+                            "type": "text",
+                            "label": "Text"
+                          },
+                          {
+                            "name": "material",
+                            "spec": [
+                              {
+                                "name": "link",
+                                "spec": [
+                                  {
+                                    "name": "uri",
+                                    "type": "text",
+                                    "label": "URI"
+                                  },
+                                  {
+                                    "name": "displayText",
+                                    "type": "text",
+                                    "label": "Display Text"
+                                  }
+                                ],
+                                "type": "collection",
+                                "label": "Link"
+                              },
+                              {
+                                "name": "video",
+                                "spec": [
+                                  {
+                                    "name": "youtubeUri",
+                                    "type": "text",
+                                    "label": "Youtube URI"
+                                  },
+                                  {
+                                    "name": "displayText",
+                                    "type": "text",
+                                    "label": "Display Text"
+                                  }
+                                ],
+                                "type": "collection",
+                                "label": "Video"
+                              }
+                            ],
+                            "type": "array",
+                            "label": "Material"
+                          },
+                          {
+                            "name": "textAnswers",
+                            "spec": [
+                              {
+                                "name": "answers",
+                                "spec": [
+                                  {
+                                    "name": "value",
+                                    "type": "text",
+                                    "label": "value"
+                                  }
+                                ],
+                                "type": "array",
+                                "label": "Answers"
+                              }
+                            ],
+                            "type": "collection",
+                            "label": "Text Answers"
+                          },
+                          {
+                            "name": "fileUploadAnswers",
+                            "spec": [
+                              {
+                                "name": "answers",
+                                "spec": [
+                                  {
+                                    "name": "fileId",
+                                    "type": "text",
+                                    "label": "File ID"
+                                  },
+                                  {
+                                    "name": "fileName",
+                                    "type": "text",
+                                    "label": "File Name"
+                                  },
+                                  {
+                                    "name": "mimeType",
+                                    "type": "text",
+                                    "label": "MIME Type"
+                                  }
+                                ],
+                                "type": "array",
+                                "label": "Answers"
+                              }
+                            ],
+                            "type": "collection",
+                            "label": "File Upload Answers"
+                          }
+                        ],
+                        "type": "collection",
+                        "label": "Feedback"
+                      }
+                    ],
+                    "type": "collection",
+                    "label": "Grade"
+                  }
+                ],
+                "type": "collection",
+                "label": "Requested Service"
+              },
+              {
+                "name": "a0000004",
+                "spec": [
+                  {
+                    "name": "questionId",
+                    "type": "text",
+                    "label": "Question ID"
+                  },
+                  {
+                    "name": "grade",
+                    "spec": [
+                      {
+                        "name": "score",
+                        "type": "number",
+                        "label": "Score"
+                      },
+                      {
+                        "name": "correct",
+                        "type": "boolean",
+                        "label": "Correct"
+                      },
+                      {
+                        "name": "feedback",
+                        "spec": [
+                          {
+                            "name": "text",
+                            "type": "text",
+                            "label": "Text"
+                          },
+                          {
+                            "name": "material",
+                            "spec": [
+                              {
+                                "name": "link",
+                                "spec": [
+                                  {
+                                    "name": "uri",
+                                    "type": "text",
+                                    "label": "URI"
+                                  },
+                                  {
+                                    "name": "displayText",
+                                    "type": "text",
+                                    "label": "Display Text"
+                                  }
+                                ],
+                                "type": "collection",
+                                "label": "Link"
+                              },
+                              {
+                                "name": "video",
+                                "spec": [
+                                  {
+                                    "name": "youtubeUri",
+                                    "type": "text",
+                                    "label": "Youtube URI"
+                                  },
+                                  {
+                                    "name": "displayText",
+                                    "type": "text",
+                                    "label": "Display Text"
+                                  }
+                                ],
+                                "type": "collection",
+                                "label": "Video"
+                              }
+                            ],
+                            "type": "array",
+                            "label": "Material"
+                          },
+                          {
+                            "name": "textAnswers",
+                            "spec": [
+                              {
+                                "name": "answers",
+                                "spec": [
+                                  {
+                                    "name": "value",
+                                    "type": "text",
+                                    "label": "value"
+                                  }
+                                ],
+                                "type": "array",
+                                "label": "Answers"
+                              }
+                            ],
+                            "type": "collection",
+                            "label": "Text Answers"
+                          },
+                          {
+                            "name": "fileUploadAnswers",
+                            "spec": [
+                              {
+                                "name": "answers",
+                                "spec": [
+                                  {
+                                    "name": "fileId",
+                                    "type": "text",
+                                    "label": "File ID"
+                                  },
+                                  {
+                                    "name": "fileName",
+                                    "type": "text",
+                                    "label": "File Name"
+                                  },
+                                  {
+                                    "name": "mimeType",
+                                    "type": "text",
+                                    "label": "MIME Type"
+                                  }
+                                ],
+                                "type": "array",
+                                "label": "Answers"
+                              }
+                            ],
+                            "type": "collection",
+                            "label": "File Upload Answers"
+                          }
+                        ],
+                        "type": "collection",
+                        "label": "Feedback"
+                      }
+                    ],
+                    "type": "collection",
+                    "label": "Grade"
+                  }
+                ],
+                "type": "collection",
+                "label": "Project Description "
+              }
+            ],
+            "type": "collection",
+            "label": "Answers"
+          },
+          {
+            "name": "totalScore",
+            "type": "number",
+            "label": "Total Score"
+          }
+        ]
+      }
+    },
+    {
+      "id": 4,
+      "module": "ai-tools:Extract",
+      "version": 2,
+      "parameters": {
+        "model": "medium",
+        "makeConnectionId": null
+      },
+      "mapper": {
+        "input": "{{1.answers.`a0000004`.textAnswers.answers[].value}}",
+        "fields": [
+          {
+            "name": "service_type",
+            "type": "string",
+            "description": "Type of landscaping service requested"
+          },
+          {
+            "name": "frequency",
+            "type": "string",
+            "description": "How often the customer wants the service"
+          },
+          {
+            "name": "property_size",
+            "type": "string",
+            "description": "Property size, if mentioned"
+          },
+          {
+            "name": "requested_start",
+            "type": "string",
+            "description": "Requested start date or timing"
+          }
+        ]
+      },
+      "metadata": {
+        "designer": {
+          "x": 139,
+          "y": -125
+        },
+        "restore": {
+          "expect": {
+            "fields": {
+              "items": [
+                {
+                  "type": {
+                    "mode": "chose",
+                    "label": "Text"
+                  }
+                },
+                {
+                  "type": {
+                    "mode": "chose",
+                    "label": "Text"
+                  }
+                },
+                {
+                  "type": {
+                    "mode": "chose",
+                    "label": "Text"
+                  }
+                },
+                {
+                  "type": {
+                    "mode": "chose",
+                    "label": "Text"
+                  }
+                }
+              ]
+            }
+          },
+          "parameters": {
+            "model": {
+              "mode": "chose",
+              "label": "MediumModel: gpt-5-nano. Reasoning: low. A balanced, quick choice for clearly defined tasks needing reliable answers rather than deep analysis",
+              "nested": []
+            },
+            "makeConnectionId": {
+              "data": {
+                "scoped": "true",
+                "connection": "ai-provider"
+              },
+              "label": "Reconnect your AI provider"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "makeConnectionId",
+            "type": "account:ai-provider,openai-gpt-3,anthropic-claude,gemini-ai-q9zyjp,ai-agent-foundry-openai,ai-agent-foundry-non-openai,mistral-ai,cohere,groq,ai-agent-xai,amazon-bedrock,ai-agent-openai-compatible",
+            "label": "Connection",
+            "required": true
+          },
+          {
+            "name": "model",
+            "type": "select",
+            "label": "Model",
+            "required": true
+          }
+        ],
+        "expect": [
+          {
+            "name": "input",
+            "type": "text",
+            "label": "Text",
+            "required": true
+          },
+          {
+            "name": "fields",
+            "spec": {
+              "name": "value",
+              "spec": [
+                {
+                  "name": "name",
+                  "type": "text",
+                  "label": "Name",
+                  "required": true
+                },
+                {
+                  "name": "description",
+                  "type": "text",
+                  "label": "Description",
+                  "required": true
+                },
+                {
+                  "name": "type",
+                  "type": "select",
+                  "label": "Type",
+                  "options": [
+                    {
+                      "label": "Text",
+                      "value": "string"
+                    },
+                    {
+                      "label": "Number",
+                      "value": "number"
+                    },
+                    {
+                      "label": "Boolean",
+                      "value": "boolean"
+                    }
+                  ],
+                  "required": true
+                }
+              ],
+              "type": "collection",
+              "label": "Information"
+            },
+            "type": "array",
+            "label": "Information",
+            "required": true
+          }
+        ]
+      }
+    },
+    {
+      "id": 16,
+      "module": "google-sheets:filterRows",
+      "version": 2,
+      "parameters": {
+        "__IMTCONN__": null
+      },
+      "mapper": {
+        "from": "drive",
+        "valueRenderOption": "FORMATTED_VALUE",
+        "dateTimeRenderOption": "FORMATTED_STRING",
+        "limit": "1",
+        "spreadsheetId": "YOUR_GOOGLE_SPREADSHEET_ID",
+        "sheetId": "Sheet1",
+        "includesHeaders": true,
+        "tableFirstRow": "A1:CZ1",
+        "filter": [
+          [
+            {
+              "a": "A",
+              "o": "text:equal",
+              "b": "{{1.responseId}}"
+            }
+          ]
+        ],
+        "sortOrder": "asc"
+      },
+      "metadata": {
+        "designer": {
+          "x": 404,
+          "y": -392
+        },
+        "restore": {
+          "parameters": {
+            "__IMTCONN__": {
+              "label": "Reconnect your Google account",
+              "data": {
+                "scoped": "true",
+                "connection": "google"
+              }
+            }
+          },
+          "expect": {
+            "from": {
+              "label": "Select from My Drive"
+            },
+            "valueRenderOption": {
+              "mode": "chose",
+              "label": "Formatted value"
+            },
+            "dateTimeRenderOption": {
+              "mode": "chose",
+              "label": "Formatted string"
+            },
+            "spreadsheetId": {
+              "mode": "chose",
+              "label": "YOUR_LEADS_SPREADSHEET"
+            },
+            "sheetId": {
+              "mode": "chose",
+              "label": "Sheet1"
+            },
+            "includesHeaders": {
+              "mode": "chose",
+              "label": "Yes"
+            },
+            "tableFirstRow": {
+              "label": "A-CZ"
+            },
+            "orderBy": {
+              "mode": "chose"
+            },
+            "sortOrder": {
+              "mode": "chose",
+              "label": "Ascending"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "__IMTCONN__",
+            "type": "account:google",
+            "label": "Connection",
+            "required": true
+          }
+        ],
+        "expect": [
+          {
+            "name": "from",
+            "type": "select",
+            "label": "Search Method",
+            "required": true,
+            "validate": {
+              "enum": [
+                "drive",
+                "share"
+              ]
+            }
+          },
+          {
+            "name": "valueRenderOption",
+            "type": "select",
+            "label": "Value render option",
+            "validate": {
+              "enum": [
+                "FORMATTED_VALUE",
+                "UNFORMATTED_VALUE",
+                "FORMULA"
+              ]
+            }
+          },
+          {
+            "name": "dateTimeRenderOption",
+            "type": "select",
+            "label": "Date and time render option",
+            "validate": {
+              "enum": [
+                "SERIAL_NUMBER",
+                "FORMATTED_STRING"
+              ]
+            }
+          },
+          {
+            "name": "limit",
+            "type": "uinteger",
+            "label": "Limit"
+          },
+          {
+            "name": "spreadsheetId",
+            "type": "select",
+            "label": "Spreadsheet Name",
+            "required": true
+          },
+          {
+            "name": "sheetId",
+            "type": "select",
+            "label": "Sheet Name",
+            "required": true
+          },
+          {
+            "name": "includesHeaders",
+            "type": "select",
+            "label": "Table contains headers",
+            "required": true,
+            "validate": {
+              "enum": [
+                true,
+                false
+              ]
+            }
+          },
+          {
+            "name": "tableFirstRow",
+            "type": "select",
+            "label": "Column range",
+            "required": true,
+            "validate": {
+              "enum": [
+                "A1:Z1",
+                "A1:BZ1",
+                "A1:CZ1",
+                "A1:DZ1",
+                "A1:MZ1",
+                "A1:ZZ1",
+                "A1:AZZ1",
+                "A1:BZZ1",
+                "A1:CZZ1",
+                "A1:DZZ1",
+                "A1:MZZ1",
+                "A1:ZZZ1"
+              ]
+            }
+          },
+          {
+            "name": "filter",
+            "type": "filter",
+            "label": "Filter",
+            "options": "rpc://google-sheets/2/rpcGetFilterKeys?includesHeaders=true"
+          },
+          {
+            "name": "orderBy",
+            "type": "select",
+            "label": "Order by"
+          },
+          {
+            "name": "sortOrder",
+            "type": "select",
+            "label": "Sort order",
+            "validate": {
+              "enum": [
+                "asc",
+                "desc"
+              ]
+            }
+          }
+        ],
+        "interface": [
+          {
+            "name": "__ROW_NUMBER__",
+            "label": "Row number",
+            "type": "number"
+          },
+          {
+            "name": "__SPREADSHEET_ID__",
+            "label": "Spreadsheet ID",
+            "type": "text"
+          },
+          {
+            "name": "__SHEET__",
+            "label": "Sheet",
+            "type": "text"
+          },
+          {
+            "name": "0",
+            "label": "Response ID (A)",
+            "type": "text"
+          },
+          {
+            "name": "1",
+            "label": "Name (B)",
+            "type": "text"
+          },
+          {
+            "name": "2",
+            "label": "Email Address (C)",
+            "type": "text"
+          },
+          {
+            "name": "3",
+            "label": "Requested Service (D)",
+            "type": "text"
+          },
+          {
+            "name": "4",
+            "label": "Project Description (E)",
+            "type": "text"
+          },
+          {
+            "name": "5",
+            "label": "Date Received (F)",
+            "type": "text"
+          },
+          {
+            "name": "6",
+            "label": "AI Service Type (G)",
+            "type": "text"
+          },
+          {
+            "name": "7",
+            "label": "AI Frequency (H)",
+            "type": "text"
+          },
+          {
+            "name": "8",
+            "label": "AI Property Size (I)",
+            "type": "text"
+          },
+          {
+            "name": "9",
+            "label": "AI Requested Start (J)",
+            "type": "text"
+          },
+          {
+            "name": "10",
+            "label": "(K)",
+            "type": "text"
+          },
+          {
+            "name": "11",
+            "label": "(L)",
+            "type": "text"
+          },
+          {
+            "name": "12",
+            "label": "(M)",
+            "type": "text"
+          },
+          {
+            "name": "13",
+            "label": "(N)",
+            "type": "text"
+          },
+          {
+            "name": "14",
+            "label": "(O)",
+            "type": "text"
+          },
+          {
+            "name": "15",
+            "label": "(P)",
+            "type": "text"
+          },
+          {
+            "name": "16",
+            "label": "(Q)",
+            "type": "text"
+          },
+          {
+            "name": "17",
+            "label": "(R)",
+            "type": "text"
+          },
+          {
+            "name": "18",
+            "label": "(S)",
+            "type": "text"
+          },
+          {
+            "name": "19",
+            "label": "(T)",
+            "type": "text"
+          },
+          {
+            "name": "20",
+            "label": "(U)",
+            "type": "text"
+          },
+          {
+            "name": "21",
+            "label": "(V)",
+            "type": "text"
+          },
+          {
+            "name": "22",
+            "label": "(W)",
+            "type": "text"
+          },
+          {
+            "name": "23",
+            "label": "(X)",
+            "type": "text"
+          },
+          {
+            "name": "24",
+            "label": "(Y)",
+            "type": "text"
+          },
+          {
+            "name": "25",
+            "label": "(Z)",
+            "type": "text"
+          },
+          {
+            "name": "26",
+            "label": "(AA)",
+            "type": "text"
+          },
+          {
+            "name": "27",
+            "label": "(AB)",
+            "type": "text"
+          },
+          {
+            "name": "28",
+            "label": "(AC)",
+            "type": "text"
+          },
+          {
+            "name": "29",
+            "label": "(AD)",
+            "type": "text"
+          },
+          {
+            "name": "30",
+            "label": "(AE)",
+            "type": "text"
+          },
+          {
+            "name": "31",
+            "label": "(AF)",
+            "type": "text"
+          },
+          {
+            "name": "32",
+            "label": "(AG)",
+            "type": "text"
+          },
+          {
+            "name": "33",
+            "label": "(AH)",
+            "type": "text"
+          },
+          {
+            "name": "34",
+            "label": "(AI)",
+            "type": "text"
+          },
+          {
+            "name": "35",
+            "label": "(AJ)",
+            "type": "text"
+          },
+          {
+            "name": "36",
+            "label": "(AK)",
+            "type": "text"
+          },
+          {
+            "name": "37",
+            "label": "(AL)",
+            "type": "text"
+          },
+          {
+            "name": "38",
+            "label": "(AM)",
+            "type": "text"
+          },
+          {
+            "name": "39",
+            "label": "(AN)",
+            "type": "text"
+          },
+          {
+            "name": "40",
+            "label": "(AO)",
+            "type": "text"
+          },
+          {
+            "name": "41",
+            "label": "(AP)",
+            "type": "text"
+          },
+          {
+            "name": "42",
+            "label": "(AQ)",
+            "type": "text"
+          },
+          {
+            "name": "43",
+            "label": "(AR)",
+            "type": "text"
+          },
+          {
+            "name": "44",
+            "label": "(AS)",
+            "type": "text"
+          },
+          {
+            "name": "45",
+            "label": "(AT)",
+            "type": "text"
+          },
+          {
+            "name": "46",
+            "label": "(AU)",
+            "type": "text"
+          },
+          {
+            "name": "47",
+            "label": "(AV)",
+            "type": "text"
+          },
+          {
+            "name": "48",
+            "label": "(AW)",
+            "type": "text"
+          },
+          {
+            "name": "49",
+            "label": "(AX)",
+            "type": "text"
+          },
+          {
+            "name": "50",
+            "label": "(AY)",
+            "type": "text"
+          },
+          {
+            "name": "51",
+            "label": "(AZ)",
+            "type": "text"
+          },
+          {
+            "name": "52",
+            "label": "(BA)",
+            "type": "text"
+          },
+          {
+            "name": "53",
+            "label": "(BB)",
+            "type": "text"
+          },
+          {
+            "name": "54",
+            "label": "(BC)",
+            "type": "text"
+          },
+          {
+            "name": "55",
+            "label": "(BD)",
+            "type": "text"
+          },
+          {
+            "name": "56",
+            "label": "(BE)",
+            "type": "text"
+          },
+          {
+            "name": "57",
+            "label": "(BF)",
+            "type": "text"
+          },
+          {
+            "name": "58",
+            "label": "(BG)",
+            "type": "text"
+          },
+          {
+            "name": "59",
+            "label": "(BH)",
+            "type": "text"
+          },
+          {
+            "name": "60",
+            "label": "(BI)",
+            "type": "text"
+          },
+          {
+            "name": "61",
+            "label": "(BJ)",
+            "type": "text"
+          },
+          {
+            "name": "62",
+            "label": "(BK)",
+            "type": "text"
+          },
+          {
+            "name": "63",
+            "label": "(BL)",
+            "type": "text"
+          },
+          {
+            "name": "64",
+            "label": "(BM)",
+            "type": "text"
+          },
+          {
+            "name": "65",
+            "label": "(BN)",
+            "type": "text"
+          },
+          {
+            "name": "66",
+            "label": "(BO)",
+            "type": "text"
+          },
+          {
+            "name": "67",
+            "label": "(BP)",
+            "type": "text"
+          },
+          {
+            "name": "68",
+            "label": "(BQ)",
+            "type": "text"
+          },
+          {
+            "name": "69",
+            "label": "(BR)",
+            "type": "text"
+          },
+          {
+            "name": "70",
+            "label": "(BS)",
+            "type": "text"
+          },
+          {
+            "name": "71",
+            "label": "(BT)",
+            "type": "text"
+          },
+          {
+            "name": "72",
+            "label": "(BU)",
+            "type": "text"
+          },
+          {
+            "name": "73",
+            "label": "(BV)",
+            "type": "text"
+          },
+          {
+            "name": "74",
+            "label": "(BW)",
+            "type": "text"
+          },
+          {
+            "name": "75",
+            "label": "(BX)",
+            "type": "text"
+          },
+          {
+            "name": "76",
+            "label": "(BY)",
+            "type": "text"
+          },
+          {
+            "name": "77",
+            "label": "(BZ)",
+            "type": "text"
+          },
+          {
+            "name": "78",
+            "label": "(CA)",
+            "type": "text"
+          },
+          {
+            "name": "79",
+            "label": "(CB)",
+            "type": "text"
+          },
+          {
+            "name": "80",
+            "label": "(CC)",
+            "type": "text"
+          },
+          {
+            "name": "81",
+            "label": "(CD)",
+            "type": "text"
+          },
+          {
+            "name": "82",
+            "label": "(CE)",
+            "type": "text"
+          },
+          {
+            "name": "83",
+            "label": "(CF)",
+            "type": "text"
+          },
+          {
+            "name": "84",
+            "label": "(CG)",
+            "type": "text"
+          },
+          {
+            "name": "85",
+            "label": "(CH)",
+            "type": "text"
+          },
+          {
+            "name": "86",
+            "label": "(CI)",
+            "type": "text"
+          },
+          {
+            "name": "87",
+            "label": "(CJ)",
+            "type": "text"
+          },
+          {
+            "name": "88",
+            "label": "(CK)",
+            "type": "text"
+          },
+          {
+            "name": "89",
+            "label": "(CL)",
+            "type": "text"
+          },
+          {
+            "name": "90",
+            "label": "(CM)",
+            "type": "text"
+          },
+          {
+            "name": "91",
+            "label": "(CN)",
+            "type": "text"
+          },
+          {
+            "name": "92",
+            "label": "(CO)",
+            "type": "text"
+          },
+          {
+            "name": "93",
+            "label": "(CP)",
+            "type": "text"
+          },
+          {
+            "name": "94",
+            "label": "(CQ)",
+            "type": "text"
+          },
+          {
+            "name": "95",
+            "label": "(CR)",
+            "type": "text"
+          },
+          {
+            "name": "96",
+            "label": "(CS)",
+            "type": "text"
+          },
+          {
+            "name": "97",
+            "label": "(CT)",
+            "type": "text"
+          },
+          {
+            "name": "98",
+            "label": "(CU)",
+            "type": "text"
+          },
+          {
+            "name": "99",
+            "label": "(CV)",
+            "type": "text"
+          },
+          {
+            "name": "100",
+            "label": "(CW)",
+            "type": "text"
+          },
+          {
+            "name": "101",
+            "label": "(CX)",
+            "type": "text"
+          },
+          {
+            "name": "102",
+            "label": "(CY)",
+            "type": "text"
+          },
+          {
+            "name": "103",
+            "label": "(CZ)",
+            "type": "text"
+          }
+        ]
+      }
+    },
+    {
+      "id": 2,
+      "module": "google-sheets:addRow",
+      "version": 2,
+      "parameters": {
+        "__IMTCONN__": null
+      },
+      "filter": {
+        "name": "Duplicates finder",
+        "conditions": [
+          [
+            {
+              "a": "{{16.`__IMTLENGTH__`}}",
+              "o": "text:equal",
+              "b": "0"
+            }
+          ]
+        ]
+      },
+      "mapper": {
+        "mode": "select",
+        "insertUnformatted": false,
+        "valueInputOption": "USER_ENTERED",
+        "insertDataOption": "INSERT_ROWS",
+        "from": "drive",
+        "spreadsheetId": "/YOUR_GOOGLE_SPREADSHEET_ID",
+        "sheetId": "Sheet1",
+        "includesHeaders": true,
+        "useColumnHeaders": true,
+        "values": {
+          "Response ID": "{{1.responseId}}",
+          "Name": "{{1.answers.`a0000001`.textAnswers.answers[].value}}",
+          "Email Address": "{{1.answers.`a0000002`.textAnswers.answers[].value}}",
+          "Requested Service": "{{1.answers.`a0000003`.textAnswers.answers[].value}}",
+          "Project Description": "{{1.answers.`a0000004`.textAnswers.answers[].value}}",
+          "Date Received": "{{1.lastSubmittedTime}}",
+          "AI Service Type": "{{get(4.information; \"service_type\")}}",
+          "AI Frequency": "{{get(4.information; \"frequency\")}}",
+          "AI Property Size": "{{get(4.information; \"property_size\")}}",
+          "AI Requested Start": "{{get(4.information; \"requested_start\")}}"
+        }
+      },
+      "metadata": {
+        "designer": {
+          "x": 634,
+          "y": -1
+        },
+        "restore": {
+          "parameters": {
+            "__IMTCONN__": {
+              "label": "Reconnect your Google account",
+              "data": {
+                "scoped": "true",
+                "connection": "google"
+              }
+            }
+          },
+          "expect": {
+            "mode": {
+              "label": "Search by path"
+            },
+            "insertUnformatted": {
+              "mode": "chose"
+            },
+            "valueInputOption": {
+              "mode": "chose",
+              "label": "User entered"
+            },
+            "insertDataOption": {
+              "mode": "chose",
+              "label": "Insert rows"
+            },
+            "from": {
+              "label": "My Drive"
+            },
+            "spreadsheetId": {
+              "path": [
+                "YOUR_LEADS_SPREADSHEET"
+              ]
+            },
+            "sheetId": {
+              "label": "Sheet1"
+            },
+            "includesHeaders": {
+              "label": "Yes"
+            },
+            "useColumnHeaders": {
+              "label": "Yes"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "__IMTCONN__",
+            "type": "account:google",
+            "label": "Connection",
+            "required": true
+          }
+        ],
+        "expect": [
+          {
+            "name": "mode",
+            "type": "select",
+            "label": "Search Method",
+            "required": true,
+            "validate": {
+              "enum": [
+                "select",
+                "fromAll",
+                "map"
+              ]
+            }
+          },
+          {
+            "name": "insertUnformatted",
+            "type": "boolean",
+            "label": "Unformatted",
+            "required": true
+          },
+          {
+            "name": "valueInputOption",
+            "type": "select",
+            "label": "Value input option",
+            "required": true,
+            "validate": {
+              "enum": [
+                "USER_ENTERED",
+                "RAW"
+              ]
+            }
+          },
+          {
+            "name": "insertDataOption",
+            "type": "select",
+            "label": "Insert data option",
+            "validate": {
+              "enum": [
+                "INSERT_ROWS",
+                "OVERWRITE"
+              ]
+            }
+          },
+          {
+            "name": "from",
+            "type": "select",
+            "label": "Drive",
+            "required": true,
+            "validate": {
+              "enum": [
+                "drive",
+                "share",
+                "team"
+              ]
+            }
+          },
+          {
+            "name": "spreadsheetId",
+            "type": "file",
+            "label": "Spreadsheet Name",
+            "required": true
+          },
+          {
+            "name": "sheetId",
+            "type": "select",
+            "label": "Sheet Name",
+            "required": true
+          },
+          {
+            "name": "includesHeaders",
+            "type": "select",
+            "label": "Table contains headers",
+            "required": true,
+            "validate": {
+              "enum": [
+                true,
+                false
+              ]
+            }
+          },
+          {
+            "name": "useColumnHeaders",
+            "type": "select",
+            "label": "Use column headers as IDs of the columns",
+            "required": true,
+            "validate": {
+              "enum": [
+                true,
+                false
+              ]
+            }
+          },
+          {
+            "name": "values",
+            "type": "collection",
+            "label": "Values in columns",
+            "metadata": [
+              [
+                [
+                  "Response ID",
+                  "Name",
+                  "Email Address",
+                  "Requested Service",
+                  "Project Description",
+                  "Date Received",
+                  "AI Service Type",
+                  "AI Frequency",
+                  "AI Property Size",
+                  "AI Requested Start"
+                ]
+              ]
+            ],
+            "spec": [
+              {
+                "name": "Response ID",
+                "type": "text",
+                "label": "Response ID (A)"
+              },
+              {
+                "name": "Name",
+                "type": "text",
+                "label": "Name (B)"
+              },
+              {
+                "name": "Email Address",
+                "type": "text",
+                "label": "Email Address (C)"
+              },
+              {
+                "name": "Requested Service",
+                "type": "text",
+                "label": "Requested Service (D)"
+              },
+              {
+                "name": "Project Description",
+                "type": "text",
+                "label": "Project Description (E)"
+              },
+              {
+                "name": "Date Received",
+                "type": "text",
+                "label": "Date Received (F)"
+              },
+              {
+                "name": "AI Service Type",
+                "type": "text",
+                "label": "AI Service Type (G)"
+              },
+              {
+                "name": "AI Frequency",
+                "type": "text",
+                "label": "AI Frequency (H)"
+              },
+              {
+                "name": "AI Property Size",
+                "type": "text",
+                "label": "AI Property Size (I)"
+              },
+              {
+                "name": "AI Requested Start",
+                "type": "text",
+                "label": "AI Requested Start (J)"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": 14,
+      "module": "ai-tools:Ask",
+      "version": 2,
+      "parameters": {
+        "model": "medium",
+        "makeConnectionId": null
+      },
+      "mapper": {
+        "input": "You are a professional customer service assistant for a landscaping company.\n\nWrite a friendly, professional email responding to a prospective customer's inquiry.\n\nCustomer name: {{1.answers.`a0000001`.textAnswers.answers[].value}}\nCustomer's original message: {{1.answers.`a0000004`.textAnswers.answers[].value}}\nService requested: {{4.information.service_type}}\nService frequency: {{4.information.frequency}}\nProperty size: {{4.information.property_size}}\nRequested start date: {{4.information.requested_start}}\n\nInstructions:\n- Thank the customer for contacting the company.\n- Acknowledge their specific service request.\n- Keep the email under 120 words.\n- Ask for any essential missing information needed to prepare an estimate, such as their property address.\n- Do not invent prices, availability, appointments, or company policies.\n- Do not promise that the requested start date is available.\n- Do not include a subject line.\n- Return only the email body."
+      },
+      "metadata": {
+        "designer": {
+          "x": 946,
+          "y": -3
+        },
+        "restore": {
+          "parameters": {
+            "model": {
+              "mode": "chose",
+              "label": "MediumModel: gpt-5-nano. Reasoning: low. A balanced, quick choice for clearly defined tasks needing reliable answers rather than deep analysis",
+              "nested": []
+            },
+            "makeConnectionId": {
+              "data": {
+                "scoped": "true",
+                "connection": "ai-provider"
+              },
+              "label": "Reconnect your AI provider"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "makeConnectionId",
+            "type": "account:ai-provider,openai-gpt-3,anthropic-claude,gemini-ai-q9zyjp,ai-agent-foundry-openai,ai-agent-foundry-non-openai,mistral-ai,cohere,groq,ai-agent-xai,amazon-bedrock,ai-agent-openai-compatible",
+            "label": "Connection",
+            "required": true
+          },
+          {
+            "name": "model",
+            "type": "select",
+            "label": "Model",
+            "required": true
+          }
+        ],
+        "expect": [
+          {
+            "name": "input",
+            "type": "text",
+            "label": "Text",
+            "required": true
+          }
+        ]
+      }
+    },
+    {
+      "id": 3,
+      "module": "google-email:sendAnEmail",
+      "version": 4,
+      "parameters": {
+        "__IMTCONN__": null
+      },
+      "mapper": {
+        "to": [
+          "notifications@example.com"
+        ],
+        "content": "<h2>New Customer Inquiry</h2>\n\n<p><strong>Customer: </strong>\n{{1.answers.`a0000001`.textAnswers.answers[].value}}</p>\n<p><strong>Email:</strong> {{1.answers.`a0000002`.textAnswers.answers[].value}}</p>\n\n<p><strong>Project Description:</strong></p>\n<p>{{1.answers.`a0000004`.textAnswers.answers[].value}}</p>\n\n<hr>\n\n<h3>AI-Generated Response Draft</h3>\n<p>{{replace(14.answer; newline; \"<br>\")}}</p>\n\n<p><em>Please review before sending.</em></p>\n",
+        "subject": "New Customer Inquiry - {{1.answers.`a0000001`.textAnswers.answers[].value}}",
+        "bodyType": "rawHtml"
+      },
+      "metadata": {
+        "designer": {
+          "x": 1222,
+          "y": 122
+        },
+        "restore": {
+          "expect": {
+            "cc": {
+              "mode": "chose"
+            },
+            "to": {
+              "mode": "chose",
+              "items": [
+                null
+              ]
+            },
+            "bcc": {
+              "mode": "chose"
+            },
+            "from": {
+              "mode": "chose"
+            },
+            "bodyType": {
+              "label": "Raw HTML"
+            },
+            "attachments": {
+              "mode": "chose"
+            },
+            "emailHeaders": {
+              "mode": "chose"
+            }
+          },
+          "parameters": {
+            "__IMTCONN__": {
+              "data": {
+                "scoped": "true",
+                "connection": "google-email"
+              },
+              "label": "Reconnect your Gmail account"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "__IMTCONN__",
+            "type": "account:google-email",
+            "label": "Connection",
+            "required": true
+          }
+        ],
+        "expect": [
+          {
+            "name": "to",
+            "spec": {
+              "name": "value",
+              "type": "email",
+              "label": "Recipient email address",
+              "required": true,
+              "validate": true
+            },
+            "type": "array",
+            "label": "To",
+            "required": true
+          },
+          {
+            "name": "subject",
+            "type": "text",
+            "label": "Subject"
+          },
+          {
+            "name": "bodyType",
+            "type": "select",
+            "label": "Body type",
+            "required": true,
+            "validate": {
+              "enum": [
+                "rawHtml",
+                "collection"
+              ]
+            }
+          },
+          {
+            "name": "attachments",
+            "spec": {
+              "name": "value",
+              "spec": [
+                {
+                  "name": "filename",
+                  "type": "filename",
+                  "label": "File name",
+                  "required": true,
+                  "semantic": "file:name"
+                },
+                {
+                  "name": "data",
+                  "type": "buffer",
+                  "label": "Data",
+                  "required": true,
+                  "semantic": "file:data"
+                }
+              ],
+              "type": "collection",
+              "label": "Attachment"
+            },
+            "type": "array",
+            "label": "Attachments"
+          },
+          {
+            "name": "from",
+            "type": "select",
+            "label": "From"
+          },
+          {
+            "name": "cc",
+            "spec": {
+              "name": "value",
+              "type": "email",
+              "label": "Recipient email address"
+            },
+            "type": "array",
+            "label": "CC recipients"
+          },
+          {
+            "name": "bcc",
+            "spec": {
+              "name": "value",
+              "type": "email",
+              "label": "Recipient email address"
+            },
+            "type": "array",
+            "label": "BCC recipients"
+          },
+          {
+            "name": "emailHeaders",
+            "spec": {
+              "name": "value",
+              "spec": [
+                {
+                  "name": "key",
+                  "type": "text",
+                  "label": "Key",
+                  "required": true
+                },
+                {
+                  "name": "value",
+                  "type": "text",
+                  "label": "Value"
+                }
+              ],
+              "type": "collection",
+              "label": "Email header"
+            },
+            "type": "array",
+            "label": "Additional email headers"
+          },
+          {
+            "name": "content",
+            "type": "text",
+            "label": "Content"
+          }
+        ],
+        "advanced": true
+      }
+    },
+    {
+      "id": 15,
+      "module": "google-email:createADraft",
+      "version": 4,
+      "parameters": {
+        "__IMTCONN__": null
+      },
+      "mapper": {
+        "to": [
+          "{{1.answers.`a0000002`.textAnswers.answers[].value}}"
+        ],
+        "subject": "Re: Your Landscaping Inquiry",
+        "bodyType": "rawHtml",
+        "content": "<p>{{replace(14.answer; newline; \"<br>\")}}</p>"
+      },
+      "metadata": {
+        "designer": {
+          "x": 1522,
+          "y": 122
+        },
+        "restore": {
+          "parameters": {
+            "__IMTCONN__": {
+              "label": "Reconnect your Gmail account",
+              "data": {
+                "scoped": "true",
+                "connection": "google-email"
+              }
+            }
+          },
+          "expect": {
+            "from": {
+              "mode": "chose"
+            },
+            "to": {
+              "mode": "chose",
+              "items": [
+                null
+              ]
+            },
+            "emailHeaders": {
+              "mode": "chose"
+            },
+            "bodyType": {
+              "label": "Raw HTML"
+            },
+            "attachments": {
+              "mode": "chose"
+            },
+            "cc": {
+              "mode": "chose"
+            },
+            "bcc": {
+              "mode": "chose"
+            },
+            "folders": {
+              "mode": "chose"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "__IMTCONN__",
+            "type": "account:google-email",
+            "label": "Connection",
+            "required": true
+          }
+        ],
+        "expect": [
+          {
+            "name": "from",
+            "type": "select",
+            "label": "From"
+          },
+          {
+            "name": "to",
+            "type": "array",
+            "label": "To",
+            "required": true,
+            "spec": {
+              "type": "email",
+              "label": "Recipient email address",
+              "required": true,
+              "name": "value"
+            }
+          },
+          {
+            "name": "emailHeaders",
+            "type": "array",
+            "label": "Additional email headers",
+            "spec": {
+              "spec": [
+                {
+                  "name": "key",
+                  "type": "text",
+                  "label": "Key",
+                  "required": true
+                },
+                {
+                  "name": "value",
+                  "type": "text",
+                  "label": "Value"
+                }
+              ],
+              "type": "collection",
+              "label": "Email header",
+              "name": "value"
+            }
+          },
+          {
+            "name": "subject",
+            "type": "text",
+            "label": "Subject"
+          },
+          {
+            "name": "bodyType",
+            "type": "select",
+            "label": "Body type",
+            "required": true,
+            "validate": {
+              "enum": [
+                "rawHtml",
+                "collection"
+              ]
+            }
+          },
+          {
+            "name": "attachments",
+            "type": "array",
+            "label": "Attachments",
+            "spec": {
+              "spec": [
+                {
+                  "name": "filename",
+                  "type": "filename",
+                  "label": "File name",
+                  "required": true,
+                  "semantic": "file:name"
+                },
+                {
+                  "name": "data",
+                  "type": "buffer",
+                  "label": "Data",
+                  "required": true,
+                  "semantic": "file:data"
+                }
+              ],
+              "type": "collection",
+              "label": "Attachment",
+              "name": "value"
+            }
+          },
+          {
+            "name": "cc",
+            "type": "array",
+            "label": "CC recipients",
+            "spec": {
+              "type": "email",
+              "label": "Recipient email address",
+              "name": "value"
+            }
+          },
+          {
+            "name": "bcc",
+            "type": "array",
+            "label": "BCC recipients",
+            "spec": {
+              "type": "email",
+              "label": "Recipient email address",
+              "name": "value"
+            }
+          },
+          {
+            "name": "threadId",
+            "type": "text",
+            "label": "Thread ID"
+          },
+          {
+            "name": "folders",
+            "type": "select",
+            "label": "Folders",
+            "multiple": true
+          },
+          {
+            "name": "content",
+            "type": "text",
+            "label": "Content"
+          }
+        ],
+        "advanced": true
+      }
+    }
+  ],
+  "metadata": {
+    "instant": false,
+    "version": 1,
+    "scenario": {
+      "roundtrips": 1,
+      "maxErrors": 3,
+      "autoCommit": true,
+      "autoCommitTriggerLast": true,
+      "sequential": false,
+      "slots": null,
+      "confidential": false,
+      "dataloss": false,
+      "dlq": false,
+      "freshVariables": false
+    },
+    "designer": {
+      "orphans": []
+    },
+    "zone": "us2.make.com",
+    "notes": []
+  }
+}
