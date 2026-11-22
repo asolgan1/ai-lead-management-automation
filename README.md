@@ -6,6 +6,10 @@ An AI-assisted lead management workflow built in Make.com for a fictional landsc
 
 The system automates the processing of customer inquiries, extracts relevant service requirements, organizes lead information, and prepares personalized email responses for human review.
 
+## Workflow Diagram
+
+![Make automation workflow](Workflow.png)
+
 ### Business Problem
 
 Small service businesses often process customer inquiries manually. This involves reading messages, identifying project requirements, recording customer information, and drafting responses.
